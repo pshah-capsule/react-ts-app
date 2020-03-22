@@ -3,13 +3,13 @@ import './App.css';
 import { Button } from 'react-bootstrap';
 
 
-import { getSentimentsData } from './utils';
-import { DIMENSTION } from './model';
+import { getSentimentsData, getOverAllScore } from './utils';
+import { DIMENSTION, SentimentData } from './model';
 
 export interface Props {}
 
 interface State {
-  sentimentsData: { segment: string; sentiment: number; percentage: number; }[];
+  sentimentsData: SentimentData[];
   dimension: string;
 }
 class App extends React.Component<Props, State> {
@@ -66,6 +66,7 @@ class App extends React.Component<Props, State> {
             </tbody>
           </table>
         </div>
+        <h5>The overall sentiments scrore is {getOverAllScore(sentimentsData)}</h5>
       </div>
     );
   }

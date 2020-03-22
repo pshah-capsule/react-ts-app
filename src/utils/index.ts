@@ -1,4 +1,4 @@
-import { DIMENSTION } from '../model'
+import { DIMENSTION, SentimentData } from '../model'
 import { USERS, VOTES } from '../constants';
 
 const getUsersGroupByDimenstion = (dimension: DIMENSTION) => {
@@ -47,7 +47,7 @@ const getSentimentsGroupedByDimenstion = (dimension: DIMENSTION) => {
 
 export const getSentimentsData = (dimension: DIMENSTION) => {
   const sentimentsGroupByDimenstion = getSentimentsGroupedByDimenstion(dimension);
-  const sentimentsData: { segment: string; sentiment: number; percentage: number; }[] = [];
+  const sentimentsData: SentimentData[] = [];
   sentimentsGroupByDimenstion.forEach((value, key) => {
     sentimentsData.push({
       segment: key,
@@ -56,4 +56,10 @@ export const getSentimentsData = (dimension: DIMENSTION) => {
     });
   });
   return sentimentsData;
+}
+
+export const getOverAllScore = (sentimentData: SentimentData[]) => {
+  let overAllScore = 0;
+  sentimentData.map(data => overAllScore = overAllScore + data.sentiment);
+  return overAllScore;
 }
