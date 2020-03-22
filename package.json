@@ -64,7 +64,12 @@
     "webpack": "4.42.0",
     "webpack-dev-server": "3.10.3",
     "webpack-manifest-plugin": "2.2.0",
-    "workbox-webpack-plugin": "4.3.1"
+    "workbox-webpack-plugin": "4.3.1",
+    "@types/enzyme": "^2.7.2",
+    "@types/react-redux": "^4.4.36",
+    "enzyme": "^2.7.1",
+    "react-redux": "^5.0.2",
+    "redux": "^3.6.0"
   },
   "scripts": {
     "start": "node scripts/start.js",
