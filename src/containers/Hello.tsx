@@ -3,17 +3,17 @@ import * as actions from '../actions/';
 import { StoreState } from '../types/index';
 import { connect, Dispatch } from 'react-redux';
 
-export function mapStateToProps({ enthusiasmLevel, languageName }: StoreState) {
+export function mapStateToProps({ counter, name }: StoreState) {
   return {
-    enthusiasmLevel,
-    name: languageName,
+    counter,
+    name,
   };
 }
 
-export function mapDispatchToProps(dispatch: Dispatch<actions.EnthusiasmAction>) {
+export function mapDispatchToProps(dispatch: Dispatch<actions.CounterAction>) {
   return {
-    onIncrement: () => dispatch(actions.incrementEnthusiasm()),
-    onDecrement: () => dispatch(actions.decrementEnthusiasm()),
+    onIncrement: () => dispatch(actions.incrementCounter()),
+    onDecrement: () => dispatch(actions.decrementCounter()),
   };
 }
 

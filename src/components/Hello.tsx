@@ -3,33 +3,26 @@ import './Hello.css';
 
 export interface Props {
   name: string;
-  enthusiasmLevel?: number;
+  counter?: number;
   onIncrement?: () => void;
   onDecrement?: () => void;
 }
 
-function Hello({ name, enthusiasmLevel = 1, onIncrement, onDecrement }: Props) {
-  if (enthusiasmLevel <= 0) {
+export default function Hello({ name, counter = 1, onIncrement, onDecrement }: Props) {
+  if (counter <= 0) {
     throw new Error('You could be a little more enthusiastic. :D');
   }
 
   return (
     <div className="hello">
       <div className="greeting">
-        Hello {name + getExclamationMarks(enthusiasmLevel)}
+        {`Hello ${name}!`}
       </div>
       <div>
-        <button onClick={onDecrement}>-</button>
-        <button onClick={onIncrement}>+</button>
+        <button onClick={onDecrement} disabled={counter === 1}>-</button>
+        <span>{` ${counter} `}</span>
+        <button onClick={onIncrement} disabled={counter > 19}>+</button>
       </div>
     </div>
   );
-}
-
-export default Hello;
-
-// helpers
-
-function getExclamationMarks(numChars: number) {
-  return Array(numChars + 1).join('!');
 }

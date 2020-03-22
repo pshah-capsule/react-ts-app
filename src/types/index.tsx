@@ -1,5 +1,5 @@
 
 export interface StoreState {
-    languageName: string;
-    enthusiasmLevel: number;
+    name: string;
+    counter: number;
 }

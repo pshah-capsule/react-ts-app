@@ -1,14 +1,14 @@
 
-import { EnthusiasmAction } from '../actions';
+import { CounterAction } from '../actions';
 import { StoreState } from '../types/index';
-import { INCREMENT_ENTHUSIASM, DECREMENT_ENTHUSIASM } from '../constants/index';
+import { INCREMENT_COUNTER, DECREMENT_COUNTER } from '../constants/index';
 
-export function enthusiasm(state: StoreState, action: EnthusiasmAction): StoreState {
+export function counterReducer(state: StoreState, action: CounterAction): StoreState {
   switch (action.type) {
-    case INCREMENT_ENTHUSIASM:
-      return { ...state, enthusiasmLevel: state.enthusiasmLevel + 1 };
-    case DECREMENT_ENTHUSIASM:
-      return { ...state, enthusiasmLevel: Math.max(1, state.enthusiasmLevel - 1) };
+    case INCREMENT_COUNTER:
+      return { ...state, counter: state.counter + 1 };
+    case DECREMENT_COUNTER:
+      return { ...state, counter: Math.max(1, state.counter - 1) };
     default:
       return state;
   }
